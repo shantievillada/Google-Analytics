@@ -28,7 +28,7 @@ var ytTracker = (function( document, window, config ) {
   
   var _config = config || {};
   var forceSyntax = _config.forceSyntax || 0;
-  var cduDataLayer = _config.cduDataLayer || 'cduDataLayer';
+  var dataLayer = _config.dataLayer || 'dataLayer';
   // Default configuration for events
   var eventsFired = {
     'Play'        : true,
@@ -338,9 +338,9 @@ var ytTracker = (function( document, window, config ) {
     if(videoTitle && videoTitle !== "TITLE TBD")
         label = videoTitle;
 
-    if( typeof window[ cduDataLayer ] !== 'undefined' && !_config.forceSyntax ) { 
+    if( typeof window[ dataLayer ] !== 'undefined' && !_config.forceSyntax ) { 
       
-      window[ cduDataLayer ].push( {
+      window[ dataLayer ].push( {
 
         'event'     : 'youTubeTrack',
         'attributes': {
@@ -388,26 +388,5 @@ var ytTracker = (function( document, window, config ) {
     'each': [ 10, 90 ]
   }
 });
-/*
- * Configuration Details
- *
- * @property events object
- * Defines which events emitted by YouTube API
- * will be turned into Google Analytics or GTM events
- *
- * @property percentageTracking object
- * Object with configurations for percentage viewed events
- *
- *   @property each array
- *   Fires an event once each percentage ahs been reached
- *
- *   @property every number
- *   Fires an event for every n% viewed
- *
- * @property forceSyntax int 0, 1, or 2
- * Forces script to use Classic (2) or Universal(1)
- *
- * @property dataLayerName string
- * Tells script to use custom dataLayer name instead of default
- */
+
 </script>
